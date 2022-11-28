@@ -4,6 +4,7 @@ import { app, auth } from "../../components/firebase-config";
 import { getDatabase, ref } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { db } from "../../components/firebase-config";
+import './index.css';
 
 import Alert from "@mui/material/Alert";
 
@@ -80,9 +81,9 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="auth-form">
       <h1>GE Rocket Booking</h1>
-      <div>
+      <div className="form-control">
         <input
           placeholder="Email"
           type="email"
@@ -90,7 +91,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div>
+      <div className="form-control">
         <input
           placeholder="Password"
           type="password"
@@ -98,9 +99,9 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>
+      <div className="form-actions">
         <p>Welcome to GE Rocket Booking</p>
-        <button onClick={handleLogin}>Login</button>
+        <button className="btn" onClick={handleLogin}>Login</button>
       </div>
     </div>
   );
