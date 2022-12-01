@@ -1,37 +1,46 @@
 #calendar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
 
 .btn {
-    background-color: #5101d1;
-    font: inherit;
-    border: 1px solid #5101d1;
-    border-radius: 5px;
-    padding: 0.25rem 1rem;
-    margin-right: 1rem;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
-    color: white;
-    cursor: pointer;
+  background-color: #5101d1;
+  font: inherit;
+  border: 1px solid #5101d1;
+  border-radius: 5px;
+  padding: 0.25rem 1rem;
+  margin-right: 1rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+  color: white;
+  cursor: pointer;
 }
 
 .btn:hover,
 .btn:active {
-    background: #6219d6;
-    border-color: #6219d6;
+  background: #6219d6;
+  border-color: #6219d6;
 }
 .form {
-    width: 25rem;
-    max-width: 80%;
-    margin: 5rem auto;
+  width: 25rem;
+  max-width: 80%;
+  margin: 5rem auto;
 }
 
 .label {
-    width: 100%;
-    display: block;
-    margin-bottom: 1rem;
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.modal {
+  width: 90%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background: rgba(0, 0, 0, 0.75);
+  display: block;
+  padding-left: 550px;
+  padding-top: 100px;
 }

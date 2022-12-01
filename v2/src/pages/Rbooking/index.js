@@ -6,6 +6,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import "./index.css";
 import Navbar from "../../components/Navbar";
+import { Modal } from "@mui/material";
 import {
   onSnapshot,
   collection,
@@ -24,16 +25,25 @@ const Rbooking = () => {
   const [events, setEvents] = useState([]);
   // States for registration
   const [title, setTitle] = useState("");
-  const [id, setId] = useState("");
+  const [groupId, setGroupId] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const bookingCollectionRef = collection(db, 'Bookings');
+  const bookingCollectionRef = collection(db, "Bookings");
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
-  
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   useEffect(() => {
     onSnapshot(collection(db, "Bookings"), (snapshot) =>
@@ -41,10 +51,10 @@ const Rbooking = () => {
     );
   }, [events]);
 
-    // Handling the form submission
+  // Handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title === "" || start === "" || end === "" || id === "") {
+    if (title === "" || start === "" || end === "" || groupId === "") {
       setError(true);
     } else {
       setSubmitted(true);
@@ -54,13 +64,9 @@ const Rbooking = () => {
       title: title,
       start: start,
       end: end,
-      id: id,
+      groupId: groupId,
     });
-  };
-
-  const handleCancel = async (e) => {
-    const bookingDoc = doc(db, 'Bookings', e);
-    await deleteDoc(bookingDoc);
+    setOpen(false);
   };
 
   const handleDateClick = (args) => {
@@ -75,8 +81,12 @@ const Rbooking = () => {
   };
   // Handling the cubicle change
   const handleCubicle = (e) => {
-    setId(e.target.value);
+    setGroupId(e.target.value);
     setSubmitted(false);
+    // setIsDisabled(true);
+    console.log(e.target);
+    console.log(e.target.value);
+    e.target.value = "";
     return (
       <div>
         <select>
@@ -102,8 +112,6 @@ const Rbooking = () => {
     setSubmitted(false);
   };
 
-
-
   // Showing success message
   const successMessage = () => {
     return (
@@ -114,7 +122,7 @@ const Rbooking = () => {
         }}
       >
         <h1>
-          User {title} reserved cubicle {id}!
+          User {title} reserved cubicle {groupId}!
         </h1>
       </div>
     );
@@ -136,6 +144,7 @@ const Rbooking = () => {
   return (
     <div>
       <Navbar />
+
       <div className="form">
         <div>
           <h1>Cubicle Booking</h1>
@@ -145,65 +154,83 @@ const Rbooking = () => {
           {errorMessage()}
           {successMessage()}
         </div>
+        <button className="btn" type="button" onClick={handleOpen}>
+          Book A Cubicle
+        </button>
         <br />
-        <form>
-          {/* Labels and inputs for form data */}
-          <label className="label">Name</label>
-          <input
-            onChange={handleTitle}
-            className="input"
-            value={title}
-            type="text"
-            id="title"
-          />
-          <br />
-          <br />
-          <br />
-          <label className="label">Start Date</label>
-          <input
-            onChange={handleDate}
-            className="input"
-            value={start}
-            type="datetime-local"
-            id="start"
-          />
-          <br />
-          <br />
-          <br />
-          <label className="label">End Date</label>
-          <input
-            onChange={handleEnd}
-            className="input"
-            value={end}
-            type="datetime-local"
-            id="end"
-          />
-          <br />
-          <br />
-          <br />
-          <label className="label">Cubicle</label>
-          <select
-            onChange={handleCubicle}
-            className="input"
-            value={id}
-            type="text"
-            placeholder="empty"
-            id="id"
-          >
-            <option>A1</option>
-            <option>A2</option>
-            <option>A5</option>
-            <option>A10</option>
-            <option>A13</option>
-            <option>A16</option>
-          </select>
-          <br />
-          <br />
-          <br />
-          <button onClick={handleSubmit} className="btn" type="submit">
-            Submit
-          </button>
-        </form>
+        <Modal onClose={handleClose} open={open} className="modal">
+          <form>
+            {/* Labels and inputs for form data */}
+            <label className="label">Name</label>
+            <input
+              onChange={handleTitle}
+              className="input"
+              value={title}
+              type="text"
+              id="title"
+            />
+            <br />
+            <br />
+            <br />
+            <label className="label">Start Date</label>
+            <input
+              onChange={handleDate}
+              className="input"
+              value={start}
+              type="datetime-local"
+              id="start"
+            />
+            <br />
+            <br />
+            <br />
+            <label className="label">End Date</label>
+            <input
+              onChange={handleEnd}
+              className="input"
+              value={end}
+              type="datetime-local"
+              id="end"
+            />
+            <br />
+            <br />
+            <br />
+            <label className="label">Cubicle</label>
+            <select
+              onChange={handleCubicle}
+              className="input"
+              value={groupId}
+              type="text"
+              placeholder="empty"
+              id="id"
+            >
+              <option value="Cubicle"></option>
+              <option disabled={isDisabled}>A1</option>
+              <option disabled={isDisabled}>A2</option>
+              <option disabled={isDisabled}>A3</option>
+              <option disabled={isDisabled}>A4</option>
+              <option disabled={isDisabled}>A5</option>
+              <option disabled={isDisabled}>A6</option>
+              <option disabled={isDisabled}>A7</option>
+              <option disabled={isDisabled}>A8</option>
+              <option disabled={isDisabled}>A9</option>
+              <option disabled={isDisabled}>A10</option>
+              <option disabled={isDisabled}>A12</option>
+              <option disabled={isDisabled}>A13</option>
+              <option disabled={isDisabled}>A14</option>
+              <option disabled={isDisabled}>A15</option>
+              <option disabled={isDisabled}>A16</option>
+            </select>
+            <br />
+            <br />
+            <br />
+            <button onClick={handleSubmit} className="btn" type="submit">
+              Confirm
+            </button>
+            <button className="btn" onClick={handleClose}>
+              Cancel
+            </button>
+          </form>
+        </Modal>
       </div>
       <div id="calendar">
         <FullCalendar
