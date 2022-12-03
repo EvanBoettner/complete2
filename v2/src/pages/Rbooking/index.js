@@ -24,16 +24,14 @@ const Rbooking = () => {
   const [events, setEvents] = useState([]);
   // States for registration
   const [title, setTitle] = useState("");
-  const [id, setId] = useState("");
+  const [groupId, setGroupId] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const bookingCollectionRef = collection(db, 'Bookings');
+  const bookingCollectionRef = collection(db, "Bookings");
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
-
-  
 
   useEffect(() => {
     onSnapshot(collection(db, "Bookings"), (snapshot) =>
@@ -41,10 +39,10 @@ const Rbooking = () => {
     );
   }, [events]);
 
-    // Handling the form submission
+  // Handling the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title === "" || start === "" || end === "" || id === "") {
+    if (title === "" || start === "" || end === "" || groupId === "") {
       setError(true);
     } else {
       setSubmitted(true);
@@ -54,12 +52,12 @@ const Rbooking = () => {
       title: title,
       start: start,
       end: end,
-      id: id,
+      groupId: groupId,
     });
   };
 
   const handleCancel = async (e) => {
-    const bookingDoc = doc(db, 'Bookings', e);
+    const bookingDoc = doc(db, "Bookings", e);
     await deleteDoc(bookingDoc);
   };
 
@@ -75,7 +73,7 @@ const Rbooking = () => {
   };
   // Handling the cubicle change
   const handleCubicle = (e) => {
-    setId(e.target.value);
+    setGroupId(e.target.value);
     setSubmitted(false);
     return (
       <div>
@@ -102,8 +100,6 @@ const Rbooking = () => {
     setSubmitted(false);
   };
 
-
-
   // Showing success message
   const successMessage = () => {
     return (
@@ -114,7 +110,7 @@ const Rbooking = () => {
         }}
       >
         <h1>
-          User {title} reserved cubicle {id}!
+          User {title} reserved cubicle {groupId}!
         </h1>
       </div>
     );
@@ -185,11 +181,14 @@ const Rbooking = () => {
           <select
             onChange={handleCubicle}
             className="input"
-            value={id}
+            value={groupId}
             type="text"
             placeholder="empty"
-            id="id"
+            id="groupId"
           >
+            <option disabled={true} value="">
+              select
+            </option>
             <option>A1</option>
             <option>A2</option>
             <option>A5</option>
