@@ -1,7 +1,10 @@
 .auth-form {
+    padding-top: 6rem;
+    height: 30rem;
     width: 25rem;
     max-width: 80%;
     margin: 5rem auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .form-control label,
@@ -24,10 +27,15 @@
     border: 1px solid #5101d1;
     border-radius: 5px;
     padding: 0.25rem 1rem;
-    margin-right: 1rem;
+    margin-left: 9rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
     color: white;
     cursor: pointer;
+}
+
+p, h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .form-actions button:hover,

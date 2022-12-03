@@ -11,6 +11,7 @@ import {
   deleteDoc,
   getDocs,
 } from "@firebase/firestore";
+import '../../App.scss';
 import { db } from "../../components/firebase-config";
 import "./index.css";
 import Navbar from "../../components/Navbar";
@@ -47,7 +48,7 @@ const AllBookings = () => {
                 </h2>
                 <h2>Cubicle: {booking.groupId}</h2>
                 <button
-                  className="btn"
+                  className="butt"
                   onClick={() => {
                     cancelBooking(booking.id);
                   }}

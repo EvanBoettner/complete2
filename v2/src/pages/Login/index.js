@@ -47,6 +47,7 @@ const Login = () => {
         //Push to Firebase Database
         // databaseRef.child('users/' + user!.uid).update(userData)
         //Done
+        console.log(email);
         navigation("/home");
       })
       .catch((error) => {
@@ -101,7 +102,8 @@ const Login = () => {
       </div>
       <div className="form-actions">
         <p>Welcome to GE Rocket Booking</p>
-        <button className="btn" onClick={handleLogin}>Login</button>
+        <p>Cubicle Reservation For GE HealthCare</p>
+        <button className="btn" onClick={handleLogin}>Sign In</button>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@
   width: 75%;
 }
 
-.btn {
+/* .btn {
   background-color: #5101d1;
   font: inherit;
   border: 1px solid #5101d1;
@@ -43,4 +43,8 @@
   display: block;
   padding-left: 550px;
   padding-top: 100px;
+} */
+
+#bookButt {
+  margin-left: 135px;
 }

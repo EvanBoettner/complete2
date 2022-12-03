@@ -7,7 +7,7 @@ import listPlugin from "@fullcalendar/list";
 import "./index.css";
 import Navbar from "../../components/Navbar";
 import { Modal } from "@mui/material";
-import '../../App.scss';
+import "../../App.scss";
 import {
   onSnapshot,
   collection,
@@ -22,14 +22,14 @@ import {
 import { db } from "../../components/firebase-config";
 import { async } from "@firebase/util";
 
-const Rbooking = () => {
+const Awing = () => {
   const [events, setEvents] = useState([]);
   // States for registration
   const [title, setTitle] = useState("");
   const [groupId, setGroupId] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const bookingCollectionRef = collection(db, "Bookings");
+  const awingCollectionRef = collection(db, "Awing");
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
@@ -38,19 +38,17 @@ const Rbooking = () => {
 
   const [open, setOpen] = useState(false);
 
-  
-
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleOpen = () => {
     setOpen(true);
-    console.log('works');
+    console.log("works");
   };
 
   useEffect(() => {
-    onSnapshot(collection(db, "Bookings"), (snapshot) =>
+    onSnapshot(collection(db, "Awing"), (snapshot) =>
       setEvents(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
   });
@@ -64,7 +62,7 @@ const Rbooking = () => {
       setSubmitted(true);
       setError(false);
     }
-    await addDoc(bookingCollectionRef, {
+    await addDoc(awingCollectionRef, {
       title: title,
       start: start,
       end: end,
@@ -255,6 +253,7 @@ const Rbooking = () => {
           //     `You booked location ${events.event.id} at ${events.event.start} until ${events.event.end}`
           //   );
           // }}
+
           aspectRatio={6}
           height={600}
           headerToolbar={{
@@ -269,4 +268,4 @@ const Rbooking = () => {
   );
 };
 
-export default Rbooking;
+export default Awing;
