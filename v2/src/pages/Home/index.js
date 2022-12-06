@@ -13,9 +13,9 @@ const Home = () => {
     <div>
       <div>
         <Navbar />
-        <div>
+        {/* <div>
           <hr></hr>
-        </div>
+        </div> */}
         <div className="row-fluid">
           <center>
             <img className="Logo" src={RocketLogo} alt="RocketBookingLogo" />

@@ -2,7 +2,6 @@
 // import { Link } from "react-router-dom";
 // import "./styles/Navbar.css";
 
-
 // function Navbar() {
 //   return (
 //     <div className="sum">
@@ -30,7 +29,7 @@
 // export default Navbar;
 
 import "../App.scss";
-import '../index';
+import "../index";
 import RocketLogo from "./assets/rblogo.svg";
 import RocketIcon from "./assets/rbicon.svg";
 import {
@@ -49,7 +48,7 @@ function Nbar() {
   return (
     <div>
       <header>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="" expand="lg">
           <Container>
             <Navbar.Brand href="#home">
               <div>
@@ -95,4 +94,3 @@ function Nbar() {
   );
 }
 export default Nbar;
-

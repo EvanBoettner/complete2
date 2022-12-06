@@ -31,7 +31,18 @@ h3 {
   padding-left: 240px;
 } */
 
-.location__prompt {
+.location__prompt2 {
     text-align: center;
     padding-top: 30px;
+}
+h3.A {
+  display:-webkit-box;
+  text-align: middle;
+  padding-left: 38%;
+  margin-bottom: 10px;
+}
+h3.B {
+  text-align: middle;
+  padding-left: 44%;
+  margin-bottom: 10px;
 }
