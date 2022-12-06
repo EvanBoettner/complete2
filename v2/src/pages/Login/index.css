@@ -1,17 +1,31 @@
+
+
+
+
 .auth-form {
-  padding-top: 6rem;
-  height: 30rem;
-  width: 25rem;
-  max-width: 80%;
-  margin: 5rem auto;
+  block-size: auto;
+  padding-top: 80px;
+  height: 30em;
+  width: 25em;
+  max-width: 100%;
+  margin: 50px auto;
+
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 30px;
+    background-color: white;
+}
+img.form-logo {
+  width: 250px;
+  height: 120px;
+  padding-bottom: 30px;
+  padding-right: 35px;
 }
 .form-control label,
 .form-control input {
   width: 75%;
-  display: block;
+  display: flexbox ;
 }
 
 .form-control label {
@@ -24,12 +38,12 @@
 }
 
 .form-actions button {
-  background-color: #5101d1;
+  background-color: blueviolet;
   font: inherit;
-  border: 1px solid #5101d1;
+  border: 1px solid blueviolet;
   border-radius: 5px;
   padding: 0.25rem 1rem;
-  margin-left: 9rem;
+  margin-left: 150px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
   color: white;
   cursor: pointer;
@@ -38,16 +52,25 @@
 p,
 h1 {
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Roboto", Roboto , sans-serif;
 }
 
 .form-actions button:hover,
 .form-actions button:active {
-  background: #6219d6;
-  border-color: #6219d6;
+  background: #4cbcf5;
+  border-color: #4cbcf5;
 }
 div.form-control {
   padding-left: 80px;
   max-width: 100%;
   border-width: 0px;
+}
+div.color {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100vh;
+  background-color: powderblue;
 }
