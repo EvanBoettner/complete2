@@ -4,7 +4,8 @@ import { app, auth } from "../../components/firebase-config";
 import { getDatabase, ref } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { db } from "../../components/firebase-config";
-import './index.css';
+import "./index.css";
+import RocketLogo from "../../components/assets/rblogo.svg";
 
 import Alert from "@mui/material/Alert";
 
@@ -52,13 +53,13 @@ const Login = () => {
       })
       .catch((error) => {
         //firebase will use this to alert errors
-        alert("Auth failiure! Please try again");
+        alert("Auth failure! Please try again");
         setIserror(true);
       });
 
-      if(setIserror === true){
-        alert(setMessage)
-      }
+    if (setIserror === true) {
+      alert(setMessage);
+    }
 
     function validate_email(email) {
       let expression = /^[^@]+@\w+(\.\w+)+\w$/;
@@ -80,30 +81,36 @@ const Login = () => {
       }
     }
   };
-
+  // document.body.style.backgroundColor = "#AA0000";
   return (
-    <div className="auth-form">
-      <h1>GE Rocket Booking</h1>
-      <div className="form-control">
-        <input
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="form-control">
-        <input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <div className="form-actions">
-        <p>Welcome to GE Rocket Booking</p>
-        <p>Cubicle Reservation For GE HealthCare</p>
-        <button className="btn" onClick={handleLogin}>Sign In</button>
+    <div className="color">
+      <div className="auth-form">
+        <center>
+          <img className="form-logo" src={RocketLogo} alt="RocketBookingLogo" />
+        </center>
+        <div className="form-control">
+          <input
+            placeholder="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-control">
+          <input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="form-actions">
+          <p>Welcome to GE Rocket Booking</p>
+          <p>Cubicle Reservation For GE HealthCare</p>
+          <button className="btn" onClick={handleLogin}>
+            Sign In
+          </button>
+        </div>
       </div>
     </div>
   );

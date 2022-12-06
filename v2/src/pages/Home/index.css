@@ -31,7 +31,34 @@ h3 {
   padding-left: 240px;
 } */
 
-.location__prompt {
+div.card {
+  display: inline-block;
+  align-items: center;
+  max-width: 100%;
+  width: 55%;
+  margin-left: 330px;
+}
+
+h1.location__prompt {
+    display: inline-block;
+    margin-bottom: 0px;
     text-align: center;
     padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: "Roboto Regular" , Roboto, sans-serif;
+}
+h3 {
+  text-align: unset;
+  display:inherit;
+  font-size: 25px;
+}
+
+h3.Wcampus {
+  max-width: fit-content;
+  padding-left: 48%;
+  margin-bottom: 10px;
+}
+h3.Rpark {
+  padding-left: 25%;
+  margin-bottom: 10px;
 }
